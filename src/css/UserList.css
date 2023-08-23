@@ -1,0 +1,18 @@
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .user-card {
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .user-card img {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+    }
+  

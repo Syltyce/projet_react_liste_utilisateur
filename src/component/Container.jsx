@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import UserList from './UserList';
+import EditForm from './EditForm';
 import hommeImage from '../assets/homme.png';
 import femmeImage from '../assets/femme.png';
 
 const Container = () => {
   const [users, setUsers] = useState([]); // Utilisation du hook useState
+  const [editingUser, setEditedUser] = useState(null);
 
   useEffect(() => {
     setUsers([
@@ -25,14 +27,80 @@ const Container = () => {
         genre: 'Femme',
         image: femmeImage,
         selected: false
-      }
+      },
+      {
+        id: 3,
+        nom: 'VEGA',
+        prenom: 'Georges',
+        age: 44,
+        genre: 'Homme',
+        image: hommeImage,
+        selected: false
+      },
+      {
+        id: 4,
+        nom: 'WHALEY',
+        prenom: 'Ronald',
+        age: 52,
+        genre: 'Homme',
+        image: hommeImage,
+        selected: false
+      },
+      {
+        id: 5,
+        nom: 'LENZ',
+        prenom: 'Laura',
+        age: 27,
+        genre: 'Femme',
+        image: femmeImage,
+        selected: false
+      },
+      {
+        id: 6,
+        nom: 'OHARA',
+        prenom: 'Richard',
+        age: 85,
+        genre: 'Homme',
+        image: hommeImage,
+        selected: false
+      },
+      {
+        id: 7,
+        nom: 'McCabe',
+        prenom: 'Barbara',
+        age: 54,
+        genre: 'Femme',
+        image: femmeImage,
+        selected: false
+      },
+      {
+        id: 8,
+        nom: 'McLean',
+        prenom: 'Raymond',
+        age: 29,
+        genre: 'Homme',
+        image: hommeImage,
+        selected: false
+      },
     ]);
   }, []);
+
+  // Fonction qui permet la modification des informations de l'utilisateur cliqué
+  const updateUser = (updatedUser) => {
+    setUsers((prevUsers) =>
+      prevUsers.map((user) =>
+        user.id === updatedUser.id ? { ...user, ...updatedUser } : user
+      )
+    );
+  };
 
   return (
     <div className="container">
       <h1>Liste des utilisateurs</h1>
-      <UserList users={users} />
+      <UserList users={users} setEditingUser={setEditedUser} />
+      {editingUser && (
+        <EditForm user={editingUser} setEditingUser={setEditedUser} updateUser={updateUser} />
+      )}
     </div>
   );
 };

@@ -1,13 +1,16 @@
 import React from "react";
 
-const User = ({ user }) => {
+const User = ({ user, setEditingUser }) => {
     return (
-      <div className="user">
-        <img src={user.image} alt= 'utilisateur' />
-        <h2> Nom et Prénom : {user.prenom} {user.nom} </h2>
-        <p>Age : {user.age} ans</p>
-        <p>Genre : {user.genre}</p>
-      </div>
+        <div className="col-md-3 mb-4">
+            <div className="user-card" onClick={() => setEditingUser(user)}>
+            <img src={user.image} alt= 'utilisateur' />
+            <h4> {user.prenom} {user.nom} </h4>
+            <p>Age : {user.age} ans</p>
+            <p>Genre : {user.genre}</p>
+        </div>
+        </div>
+
     );
   };
   
