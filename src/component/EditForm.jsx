@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const EditForm = ({ user, setEditingUser, updateUser }) => {
+const EditForm = ({ user, setEditingUser, updateUser, deleteUser }) => {
 
     // Variable qui va permettre de modifier les informations de l'utilisateur à partir de celles déjà inscrites
     const [editedUser, setEditedUser] = useState(user);
@@ -49,6 +49,7 @@ const EditForm = ({ user, setEditingUser, updateUser }) => {
                 onChange={handleInputChange}
                 />
 
+                <button onClick={() => deleteUser(editedUser.id)} className="btn btn-danger"> Supprimer l'Utilisateur </button>
                 <button type="submit" className="btn btn-primary"> Sauvegarder Modifications </button>
                 <button onClick={() => setEditingUser(null)} className="btn btn-secondary"> Annuler </button>
             </form>

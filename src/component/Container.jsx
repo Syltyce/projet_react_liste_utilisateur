@@ -93,13 +93,19 @@ const Container = () => {
                 user.id === updatedUser.id ? { ...user, ...updatedUser } : user));
     };
 
+    const deleteUser = (userId) => {
+        const updatedUsers = users.filter((user) => user.id !== userId);
+        setUsers(updatedUsers);
+        setEditedUser(null);
+    }
+
     return (
     // Contenu de la page
     <div className="container">
         <h1>Liste des utilisateurs</h1>
         <UserList users={users} setEditingUser={setEditedUser} />
         {editingUser && (
-        <EditForm user={editingUser} setEditingUser={setEditedUser} updateUser={updateUser} />
+        <EditForm user={editingUser} setEditingUser={setEditedUser} updateUser={updateUser} deleteUser={deleteUser}/>
         )}
     </div>
     );
