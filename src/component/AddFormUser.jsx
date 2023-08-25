@@ -65,7 +65,7 @@ const AddFormUser = ({ addUser, setIsAdding }) => {
                 <option value="Femme">Femme</option>
             </select>
 
-            <button type="submit">Ajouter</button>
+            <button className="btn btn-primary" type="submit">Ajouter</button>
             </form>
         </div>
     );

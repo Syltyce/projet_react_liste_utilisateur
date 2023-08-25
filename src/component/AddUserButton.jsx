@@ -7,7 +7,7 @@ const AddUserButton = ({ addUser }) => {
     return (
     <div className="add-user-button">
         {!isAdding ? (
-        <button onClick={() => setIsAdding(true)}> Ajouter un utilisateur </button>
+        <button className="btn btn-primary" onClick={() => setIsAdding(true)}> Ajouter un utilisateur </button>
         ) : (
         <AddFormUser addUser={addUser} setIsAdding={setIsAdding} />
         )}

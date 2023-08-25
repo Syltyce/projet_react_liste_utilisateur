@@ -108,12 +108,14 @@ const Container = () => {
     return (
     // Contenu de la page
     <div className="container">
-        <h1>Liste des utilisateurs</h1>
-        <UserList users={users} setEditingUser={setEditedUser} />
+        <div className='row'>
+            <h1>Liste des utilisateurs</h1>
+            <AddUserButton addUser={addUser} />
+        </div>
         {editingUser && (
         <EditForm user={editingUser} setEditingUser={setEditedUser} updateUser={updateUser} deleteUser={deleteUser}/>
         )}
-        <AddUserButton addUser={addUser} />
+        <UserList users={users} setEditingUser={setEditedUser} />
     </div>
     );
     
