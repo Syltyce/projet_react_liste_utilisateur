@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UserList from './UserList';
 import EditForm from './EditForm';
+import AddUserButton from './AddUserButton';
 import hommeImage from '../assets/homme.png';
 import femmeImage from '../assets/femme.png';
 
@@ -99,6 +100,11 @@ const Container = () => {
         setEditedUser(null);
     }
 
+    const addUser = (newUser) => {
+        newUser.id = users.length + 1;
+        setUsers([...users, newUser]);
+    }
+
     return (
     // Contenu de la page
     <div className="container">
@@ -107,6 +113,7 @@ const Container = () => {
         {editingUser && (
         <EditForm user={editingUser} setEditingUser={setEditedUser} updateUser={updateUser} deleteUser={deleteUser}/>
         )}
+        <AddUserButton addUser={addUser} />
     </div>
     );
     
